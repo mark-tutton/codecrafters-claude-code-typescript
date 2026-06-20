@@ -55,6 +55,11 @@ async function main() {
     } else {
       console.error("No tool call found for this command", toolCalls);
     }
+  } else {
+    const message = response.choices[0].message;
+    if (message.content) {
+      process.stdout.write(message.content);
+    }
   }
 
   // You can use print statements as follows for debugging, they'll be visible when running tests.
